@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class ATM {
@@ -9,13 +8,13 @@ public class ATM {
         this.Account = account;
     }
 
-    public void displayMenu() {
-        System.out.println("\n ATM Interface");
+    public void Menu() {
+        System.out.println("\n ATM System");
         System.out.println("1. Withdraw amount");
         System.out.println("2. Deposit amount");
         System.out.println("3. Check Balance");
         System.out.println("4. Exit");
-        System.out.print("Enter  choice: ");
+        System.out.print("Enter choice: ");
     }
 
 
@@ -24,7 +23,7 @@ public class ATM {
         int choice;
 
         do {
-            displayMenu();
+            Menu();
             choice = scanner.nextInt();
 
             switch (choice) {
@@ -45,7 +44,7 @@ public class ATM {
                     System.out.println("Thank you for using the ATM!");
                     break;
                 default:
-                    System.out.println("OOPS!Invalid choice. Please try again.");
+                    System.out.println("OOPS!\n Invalid choice, Please try again.");
             }
         } while (choice != 4);
 
@@ -54,7 +53,7 @@ public class ATM {
 
     public void withdraw(double amount) {
         if (amount <= 0) {
-            System.out.println("Invalid withdrawal amount. Please enter a positive value.");
+            System.out.println("Invalid withdrawal amount, Please enter a positive value");
         } else if (Account.getBalance() >= amount) {
             Account.withdraw(amount);
             System.out.println("Withdrawal successful. Remaining balance: $" + String.format("%.2f", Account.getBalance()));
@@ -65,10 +64,10 @@ public class ATM {
 
     public void deposit(double amount) {
         if (amount <= 0) {
-            System.out.println("Invalid deposit amount,Please enter a positive value.");
+            System.out.println("Invalid deposit amount. Please enter a positive value.");
         } else {
             Account.deposit(amount);
-            System.out.println("Deposit successful, New balance: $" + String.format("%.2f", Account.getBalance()));
+            System.out.println("Deposit successful. New balance: $" + String.format("%.2f", Account.getBalance()));
         }
     }
 
@@ -117,4 +116,6 @@ class BankAccount {
         }
     }
 }
+
+
 
