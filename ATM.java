@@ -3,19 +3,19 @@ import java.util.Scanner;
 
 public class ATM {
 
-    private BankAccount userAccount; 
+    private BankAccount Account; 
 
     public ATM(BankAccount account) {
-        this.userAccount = account;
+        this.Account = account;
     }
 
     public void displayMenu() {
-        System.out.println("\n--- ATM Interface ---");
-        System.out.println("1. Withdraw");
-        System.out.println("2. Deposit");
+        System.out.println("\n ATM Interface");
+        System.out.println("1. Withdraw amount");
+        System.out.println("2. Deposit amount");
         System.out.println("3. Check Balance");
         System.out.println("4. Exit");
-        System.out.print("Enter your choice: ");
+        System.out.print("Enter  choice: ");
     }
 
 
@@ -42,10 +42,10 @@ public class ATM {
                     checkBalance();
                     break;
                 case 4:
-                    System.out.println("Thank you for using the ATM. Goodbye!");
+                    System.out.println("Thank you for using the ATM!");
                     break;
                 default:
-                    System.out.println("Invalid choice. Please try again.");
+                    System.out.println("OOPS!Invalid choice. Please try again.");
             }
         } while (choice != 4);
 
@@ -55,26 +55,26 @@ public class ATM {
     public void withdraw(double amount) {
         if (amount <= 0) {
             System.out.println("Invalid withdrawal amount. Please enter a positive value.");
-        } else if (userAccount.getBalance() >= amount) {
-            userAccount.withdraw(amount);
-            System.out.println("Withdrawal successful. Remaining balance: $" + String.format("%.2f", userAccount.getBalance()));
+        } else if (Account.getBalance() >= amount) {
+            Account.withdraw(amount);
+            System.out.println("Withdrawal successful. Remaining balance: $" + String.format("%.2f", Account.getBalance()));
         } else {
-            System.out.println("Insufficient balance. Current balance: $" + String.format("%.2f", userAccount.getBalance()));
+            System.out.println("Insufficient balance. Current balance: $" + String.format("%.2f", Account.getBalance()));
         }
     }
 
     public void deposit(double amount) {
         if (amount <= 0) {
-            System.out.println("Invalid deposit amount. Please enter a positive value.");
+            System.out.println("Invalid deposit amount,Please enter a positive value.");
         } else {
-            userAccount.deposit(amount);
-            System.out.println("Deposit successful. New balance: $" + String.format("%.2f", userAccount.getBalance()));
+            Account.deposit(amount);
+            System.out.println("Deposit successful, New balance: $" + String.format("%.2f", Account.getBalance()));
         }
     }
 
     // Method to check balance
     public void checkBalance() {
-        System.out.println("Your current balance is: $" + String.format("%.2f", userAccount.getBalance()));
+        System.out.println("Your current balance is: $" + String.format("%.2f", Account.getBalance()));
     }
 
     public static void main(String[] args) {
@@ -117,3 +117,4 @@ class BankAccount {
         }
     }
 }
+
